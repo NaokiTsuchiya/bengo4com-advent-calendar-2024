@@ -37,10 +37,10 @@ class JwtSessionModule extends AbstractModule
         $this->bind(JwtFacade::class);
         $this->bind(Key::class)->toProvider(InMemoryProvider::class);
         $this->bind(Signer::class)->to(Sha256::class);
-        $this->bind(TokenFactoryInterface::class)->to(TokenFactory::class);
+        $this->bind(TokenFactory::class);
 
         // parser
-        $this->bind(ParserInterface::class)->to(Parser::class);
+        $this->bind(Parser::class);
         $this->bind(SignedWithInterface::class)->toProvider(SignedWithProvider::class);
         $this->bind(ValidAt::class)->to(StrictValidAt::class);
 
@@ -52,5 +52,7 @@ class JwtSessionModule extends AbstractModule
         // sessionHandler
         $this->bind()->annotatedWith('redis')->toProvider(RedisProvider::class);
         $this->bind(SessionHandlerInterface::class)->toConstructor(RedisSessionHandler::class, ['redis' => 'redis']);
+
+        $this->bind(App::class);
     }
 }

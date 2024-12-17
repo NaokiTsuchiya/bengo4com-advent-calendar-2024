@@ -16,7 +16,7 @@ final readonly class RequestSessionIdProvider
     public function __construct(
         #[SessionName]
         private string $name,
-        private ParserInterface $parser,
+        private Parser $parser,
         #[Cookie]
         private array $cookie,
     ) {

@@ -18,7 +18,7 @@ class SessionFactory
     ) {
     }
 
-    public function createIlluminateSession(string|null $sessionId): Session
+    public function newInstance(string|null $sessionId): Session
     {
         return new Store(
             $this->name,

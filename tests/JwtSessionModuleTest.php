@@ -20,7 +20,7 @@ final class JwtSessionModuleTest extends TestCase
     #[Test]
     public function newInstanceOfTokenFactory(): void
     {
-        $instance = $this->injector->getInstance(TokenFactoryInterface::class);
+        $instance = $this->injector->getInstance(TokenFactory::class);
         $this->assertInstanceOf(TokenFactory::class, $instance);
     }
 
@@ -38,5 +38,15 @@ final class JwtSessionModuleTest extends TestCase
         $instance = $this->injector->getInstance(RequestSessionIdProvider::class);
 
         $this->assertInstanceOf(RequestSessionIdProvider::class, $instance);
+    }
+
+    #[Test]
+    public function testCreateToken(): void
+    {
+        $app = $this->injector->getInstance(App::class);
+        $session = $app->sessionFactory->newInstance(null);
+        $token = $app->tokenFactory->newInstance($session->getId());
+
+        $this->assertSame($token->claims()->get('jti'), $session->getId());
     }
 }

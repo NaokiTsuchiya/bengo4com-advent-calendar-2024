@@ -16,7 +16,8 @@
         "lcobucci/clock": "^3.3",
         "psr/clock": "^1.0",
         "illuminate/session": "^11.35",
-        "ext-redis": "*"
+        "ext-redis": "*",
+        "ray/object-visual-grapher": "^1.0"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.8",

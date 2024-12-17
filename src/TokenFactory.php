@@ -11,7 +11,7 @@ use Lcobucci\JWT\Signer;
 use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\UnencryptedToken;
 
-final class TokenFactory implements TokenFactoryInterface
+final class TokenFactory
 {
     public function __construct(
         private readonly Issuer $issuer,
@@ -21,7 +21,7 @@ final class TokenFactory implements TokenFactoryInterface
     ) {
     }
 
-    public function create(string $sessionId): UnencryptedToken
+    public function newInstance(string $sessionId): UnencryptedToken
     {
         return $this->jwtFacade->issue(
             $this->signer,

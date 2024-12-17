@@ -11,7 +11,7 @@ use Lcobucci\JWT\Validation\RequiredConstraintsViolated;
 use Lcobucci\JWT\Validation\SignedWith;
 use Lcobucci\JWT\Validation\ValidAt;
 
-class Parser implements ParserInterface
+class Parser
 {
     public function __construct(
         private readonly JwtFacade $jwtFacade,
