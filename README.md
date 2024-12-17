@@ -1,13 +1,16 @@
 # naoki-tsuchiya/jwt-session
 
-## Installation
+## Install dependencies
 
     composer install
 
-## Available Commands
+## Serve redis
 
-    composer test              // Run unit test
-    composer tests             // Test and quality checks
-    composer cs-fix            // Fix the coding style
-    composer sa                // Run static analysis tools
-    composer run-script --list // List all commands
+    docker-compose up -d
+
+## Run
+
+    php -S localhost:8080 -t public
+
+
+Open http://localhost:8080 for getting session cookie, and access http://localhost:8080/session-required.php for checking session cookie.
