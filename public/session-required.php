@@ -41,7 +41,7 @@ setcookie('sess', $token->toString(), [
     'expires' => $exp->getTimestamp(),
     'path' => '/',
     'domain' => 'localhost',
-    'secure' => false,
+    'secure' => false, // HTTPS 環境では true にする必要がある
     'httponly' => true,
 ]);;
 echo 'Session value: ' . $value;
